@@ -17,6 +17,16 @@ html {
 
 div{
     border: 2px solid white;
+    color: white;
+    font-size: 2.5rem;
     width: 500px;
     height: 400px;
+}
+input {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    border: 1px grey solid;
 }

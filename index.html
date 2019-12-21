@@ -10,17 +10,13 @@
 <body>
     <div id="landing">
         <h1>Fast Hikes</h1>
-        <form>
-            <ul>
-             <li>
-               <label for="location">Location:</label>
-               <input type="text" id="location" name="location">
-             </li>
-             <li>
-               <label for="duration">Duration:</label>
-               <input type="number" id="duration" name="duration">
-             </li>
-           </form>
+        <form id="artist-form">
+            <label for="location-input">Location</label>
+            <input type="text" id="location-input" placeholder="City or Zip"><br>
+            <label for="duration-input">Duration</label>
+            <input type="number" id="duration-input" placeholder="Duration in hrs"><br>
+            <input id="submit-btn" type="submit" value="Submit">
+          </form>
     </div>
 
     <script
