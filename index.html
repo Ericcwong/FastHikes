@@ -14,12 +14,12 @@
         <form id="input-form">
             <div class="inputDiv">
                 <label for="location-input">Location</label>
-                <input type="text" class="info-input" id="location-input" placeholder="City or Zip">
+                <input type="text" class="info-input" id="location-input" placeholder="City or Zip" required>
                 <button id="geoloc-btn" class="info-input"><i class="fas fa-map-marker-alt"></i></button><br>
             </div>
             <div class="inputDiv">
                 <label for="duration-input">Duration</label>
-                <input type="number" id="duration-input" class="info-input" placeholder="Duration in hrs"><br>    
+                <input type="number" min="1" id="duration-input" class="info-input" placeholder="Duration in hrs" required><br>    
             </div>
             <div class="inputDiv">
                 <input id="submit-btn" type="submit" value="Submit">
