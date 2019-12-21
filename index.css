@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html { 
+    background: url(assets/hiking-backdrop.jpeg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+div{
+    border: 2px solid white;
+    width: 500px;
+    height: 400px;
+}
