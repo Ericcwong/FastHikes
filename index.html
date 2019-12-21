@@ -1,33 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Dan is the best</title>
-    <!-- Bootstrap CSS CDN  -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css"
-    />
-
-    <!-- Font Awesome CSS Icons (For cool glyphicons) -->
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
-    />
-    <link rel="stylesheet" href="./assets/styles/results.css" />
-  </head>
-  <body>
-    <h1>Where's Dan?</h1>
-    <h2>
-      Dan is Here!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    </h2>
-    <h3>WOOOOOOOOOOOOOOOOW!</h3>
-    <h4>Much amazing!!!!</h4>
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
-    <!-- Code to the JavaScript File -->
-    <script src="./assets/logic/script.js"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Fast Hikes</title>
+</head>
+<body>
+    <!-- Sets the background image -->
+    <img class="backdrop" alt="" src="assets/hiking-backdrop.jpeg">
+    <!-- Container for inputs -->
+    <div class="landingPage">
+        <h1>Fast Hikes</h1>
+        My location is
+        <!-- Location input, plus location button -->
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Address">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fas fa-map-marker-alt"></i></button>
+            </div>
+        </div>
+        and the amount of time I have is
+        <!-- Duration selector -->
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                2 hrs
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">4 hrs</a>
+                <a class="dropdown-item" href="#">6 hrs</a>
+                <a class="dropdown-item" href="#">8 hrs</a>
+            </div>
+        </div>
+        <button class="btn btn-secondary">Submit</button>
+    </div>
+</body>
 </html>
+
