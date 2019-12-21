@@ -3,11 +3,12 @@ $("#geoloc-btn").on("click", function(event){
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(showPosition){
             console.log(showPosition);
-            console.log(showPosition.coords.latitude);
-            console.log(showPosition.coords.longitude);
+            var lat = showPosition.coords.latitude;
+            var long = showPosition.coords.longitude;
+            $("#location-input").val(`${lat}, ${long}`);
         });
     } else {
-    console.log("geoLocation not supported on broswer")
+    console.log("geoLocation not supported on browser")
     }
 });
 
