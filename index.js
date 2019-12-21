@@ -11,6 +11,10 @@ $("#geoloc-btn").on("click", function(event){
     }
 });
 
-$("#submit-btn").on("click", function(){
-    alert("connected");
+$("#submit-btn").on("click", function(event){
+    event.preventDefault();
+    var location = $("#location-input").val();
+    var duration = $("#duration-input").val();
+    console.log(location);
+    console.log(duration);
 });
