@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 1px purple solid;
+}
+body {
+  width: 100%;
+  min-height: 100vh;
+}
+main {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-template-rows: 100vh;
+  grid-template-areas: "filters results";
+}
+
+#filterArea {
+  grid-area: filters;
+}
+
+#resultsArea {
+  grid-area: results;
+  display: grid;
+  grid-gap: 10px;
+  min-height: 100vh;
+}
+
+.hikeCard {
+  display: grid;
+  grid-template-columns: 25% 50% 25%;
+  grid-template-rows: 15% 85%;
+  grid-template-areas:
+    "Image Title Duration"
+    "Image Details Details";
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.image {
+  grid-area: Image;
+}
+
+.hikeTitle {
+  grid-area: Title;
+}
+
+.hikeDuration {
+  grid-area: Duration;
+}
+
+.hikeDetails {
+  grid-area: Details;
+}
