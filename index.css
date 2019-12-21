@@ -20,12 +20,9 @@ html {
     color: white;
     font-size: 2.5rem;
     width: 476px;
-    height: 400px;
     text-shadow: 2px 2px 2px rgb(41, 41, 41);
 }
-#location-input,
-#duration-input,
-#geoloc-btn {
+.info-input {
     padding-top: 5px;
     padding-bottom: 5px;
     padding-left: 10px;
@@ -33,37 +30,13 @@ html {
     border-radius: 5px;
     border: 1px grey solid;
     font-size: 1.5rem;
-}
+}     
 
-.myButton {
-	box-shadow:inset 0px 1px 0px 0px #ffffff;
-	background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
-	background-color:#ffffff;
-	border-radius:6px;
-	border:1px solid #dcdcdc;
-	display:inline-block;
-	cursor:pointer;
-	color:#666666;
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-	padding:15px 19px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #ffffff;
+.inputDiv{
+    padding-top: 10px;
 }
-.myButton:hover {
-	background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
-	background-color:#f6f6f6;
-}
-.myButton:active {
-	position:relative;
-	top:1px;
-}
-
-        
 
 #submit-btn {
-	box-shadow: 0px 10px 14px -7px #3e7327;
 	background:linear-gradient(to bottom, #77b55a 5%, #72b352 100%);
 	background-color:#77b55a;
 	border-radius:4px;
