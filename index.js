@@ -20,7 +20,7 @@ $("#geoloc-btn").on("click", function(event){
     }
 });
 
-$("#submit-btn").on("click", function(event){
+$("#input-form").on("submit", function(event){
     event.preventDefault();
     var location = $("#location-input").val();
     var duration = $("#duration-input").val();
