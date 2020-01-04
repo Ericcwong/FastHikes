@@ -51,3 +51,11 @@ main {
 .hikeDetails {
   grid-area: Details;
 }
+#logo{
+  padding-left: 3%;
+}
+.header{
+  background-image: url("../images/results\ images/headerBackground.jpg");
+  background-position: center;
+  margin-bottom: 1%;
+}
