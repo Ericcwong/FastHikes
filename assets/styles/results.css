@@ -51,7 +51,7 @@ li{
   grid-area: Image;
 }
 .hikeImage{
-  min-width: 100%;
+  max-width: 100%;
 }
 
 .hikeTitle {
@@ -72,4 +72,8 @@ li{
   background-image: url("../images/results\ images/headerBackground.jpg");
   background-position: center;
   margin-bottom: 1%;
+}
+.footer{
+  text-align: center;
+  flex-shrink: 0;
 }
