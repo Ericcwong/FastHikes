@@ -1,7 +1,10 @@
-* {
+/* * {
   margin: 0;
   padding: 0;
-  border: 1px purple solid;
+  border: 1px black solid;
+} */
+#filterArea, .hikeCard, .hikeTitle, .hikeDuration, .hikeDetails, li{
+  border: 1px black solid;
 }
 body {
   width: 100%;
@@ -16,6 +19,14 @@ main {
 
 #filterArea {
   grid-area: filters;
+}
+ul{
+  margin: 0;
+  margin-bottom: 30%;
+  padding: 0;
+}
+li{
+  list-style-type: none;
 }
 
 #resultsArea {
@@ -39,6 +50,9 @@ main {
 .image {
   grid-area: Image;
 }
+.hikeImage{
+  max-width: 100%;
+}
 
 .hikeTitle {
   grid-area: Title;
@@ -50,4 +64,16 @@ main {
 
 .hikeDetails {
   grid-area: Details;
+}
+#logo{
+  padding-left: 3%;
+}
+.header{
+  background-image: url("../images/results\ images/headerBackground.jpg");
+  background-position: center;
+  margin-bottom: 1%;
+}
+.footer{
+  text-align: center;
+  flex-shrink: 0;
 }
