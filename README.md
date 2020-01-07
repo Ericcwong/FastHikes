@@ -10,14 +10,11 @@ As an outdoor enthusiest, I need a way to see what hikes are around me that I ca
 ​
 ### Gallery
 ​
-Home:
-![Image title](./relativeLinkToImage.png "Image title")
+Home page sketch:<br>
+<img src="assets/images/homePageSketch.jpg" alt="home sketch" title="Home page sketch" width="300" height="300" /> <br>
 ​
-Sign In:
-![Home Page View](./relativeLinkToImage.png "Home Page View")
-​
-Super Cool Page:
-![Home Page View](./relativeLinkToImage.png "Home Page View")
+Results page sketch:<br>
+<img src="assets/images/resultsPageSketch.jpg" alt="results sketch" title="Results page sketch" width="300" height="300" />
 ​
 ### Problem
 ​
