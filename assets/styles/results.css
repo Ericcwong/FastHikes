@@ -1,12 +1,10 @@
-*, *:before, *:after{
-  box-sizing: border-box;
-}
+
 #filterArea, .hikeCard, .hikeTitle, .hikeDuration, .hikeDetails, li{
   padding: 5px;
-  border: 1px black solid;
+  border: 1px lightgray solid;
   border-radius: 7px;
-  box-sizing: border-box;
-  position: inherit;
+  /* box-sizing: border-box; */
+  /* position: inherit; */
 }
 body {
   width: 100%;
@@ -48,6 +46,7 @@ li{
   width: 95%;
   margin-left: auto;
   margin-right: auto;
+  box-sizing: border-box;
 }
 .cardTitles{
   font-weight: bold;
@@ -92,12 +91,13 @@ li{
 }
 
 /* Smartphones (portrait and landscape) ----------- */
-@media only screen and (min-device-width : 250px) and (max-device-width : 480px) {
+
+@media only screen and (min-device-width : 51px) and (max-device-width : 480px) {
   header{
     text-align: center;
   }
-  aside{
-    display: none;
+  #filterArea{
+    height: 180px;
   }
   .hikeCard {
     display: inline;
@@ -115,5 +115,84 @@ li{
     grid-template-columns: 20% 80%;
     grid-template-rows: 100vh;
     grid-template-areas: "filters results";
+  }
+}
+@media (min-width: 481px) and (max-width: 504px) {
+  header{
+    text-align: center;
+  }
+  #filterArea{
+    height: 200px;
+  }
+  main {
+    display: inline;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: 100vh;
+    grid-template-areas: "filters results";
+  }
+  .hikeCard {
+    display: inline;
+    grid-template-columns: 25% 50% 25%;
+    grid-template-rows: 40% 60%;
+    grid-template-areas:
+      "Image Title Duration"
+      "Image Details Details";
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+  }
+}
+@media (min-width: 505px) and (max-width: 641px) {
+  header{
+    text-align: center;
+  }
+  #filterArea{
+    height: 200px;
+  }
+  main {
+    display: inline;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: 100vh;
+    grid-template-areas: "filters results";
+  }
+  .hikeCard {
+    display: inline;
+    grid-template-columns: 25% 50% 25%;
+    grid-template-rows: 27% 73%;
+    grid-template-areas:
+      "Image Title Duration"
+      "Image Details Details";
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+  }
+}
+/*Tablets*/
+@media (min-width: 641px) and (max-width: 1029px) {
+  header{
+    text-align: center;
+  }
+  #filterArea{
+    height: 200px;
+  }
+  main {
+    display: inline;
+    grid-template-columns: 1% 99%;
+    grid-template-rows: 100vh;
+    grid-template-areas: "filters results";
+  }
+  .hikeCard {
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    grid-template-rows: 25% 75%;
+    grid-template-areas:
+      "Image Title Duration"
+      "Image Details Details";
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
   }
 }
