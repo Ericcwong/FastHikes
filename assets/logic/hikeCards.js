@@ -11,7 +11,7 @@ var obj = {
     "name": "Bear Peak Out and Back",
     "type": "Featured Hike",
     "summary": "A must-do hike for Boulder locals and visitors alike!",
-    "difficulty": "blueBlack",
+    "difficulty": "Black",
     "stars": 4.6,
     "starVotes": 109,
     "location": "Boulder, Colorado",
@@ -36,7 +36,7 @@ var obj = {
     "name": "Boulder Skyline Traverse",
     "type": "Featured Hike",
     "summary": "The classic long mountain route in Boulder.",
-    "difficulty": "green",
+    "difficulty": "black",
     "stars": 4.7,
     "starVotes": 74,
     "location": "Superior, Colorado",
@@ -61,7 +61,7 @@ var obj = {
     "name": "Sunshine Lion's Lair Loop",
     "type": "Featured Hike",
     "summary": "Great Mount Sanitas views are the reward for this gentler loop in Sunshine Canyon.",
-    "difficulty": "green",
+    "difficulty": "blue",
     "stars": 4.5,
     "starVotes": 107,
     "location": "Boulder, Colorado",
@@ -103,13 +103,14 @@ function createCard(i){
 }
 
 //filtering logic
-var difficulty = $("#difficultyFilter").val();
-var elevation = $("#elevationFilter").val();
-var rating = $("#ratingFilter").val();
-var length = $("#lengthFilter").val();
+
 var trails = [];
 
 $("#filterBtn").on("click", function(){
+  var difficulty = $("#difficultyFilter").val();
+var elevation = $("#elevationFilter").val();
+var rating = $("#ratingFilter").val();
+var length = $("#lengthFilter").val();
     // console.log(difficulty);
     // console.log(elevation);
     // console.log(rating);
@@ -127,6 +128,30 @@ $("#filterBtn").on("click", function(){
         obj = {trails};
         console.log("New obj:", obj);
         trails = [];
+    }
+    else if(difficulty === "Moderate"){
+      for(var i = 0; i < obj.trails.length; i++){
+        console.log("Difficulty:", obj.trails[i].difficulty)
+        if(obj.trails[i].difficulty === "blue" || obj.trails[i].difficulty === "blueBlack"){
+          trails.push(obj.trails[i]);
+        }
+      }
+      console.log("filterIndex array:", trails);
+      obj = {trails};
+      console.log("New obj:", obj);
+      trails = [];
+    }
+    else if(difficulty === "Difficult"){
+      for(var i = 0; i < obj.trails.length; i++){
+        console.log("Difficulty:", obj.trails[i].difficulty)
+        if(obj.trails[i].difficulty === "black"){
+          trails.push(obj.trails[i]);
+        }
+      }
+      console.log("filterIndex array:", trails);
+      obj = {trails};
+      console.log("New obj:", obj);
+      trails = [];
     }
 
 })
