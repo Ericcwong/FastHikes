@@ -266,17 +266,18 @@ function createCard(i){
     <div class="image">
     <img src="${obj.trails[i].imgMedium}" alt="Image" class="hikeImage" />
     </div>
-    <div class="hikeTitle">Title: ${obj.trails[i].name}</div>
-    <div class="hikeDuration">Hike Length: ${obj.trails[i].length} Miles </div>
+    <div class="hikeTitle"><span class="cardTitles">Title:</span> ${obj.trails[i].name}</div>
+    <div class="hikeDuration"><span class="cardTitles">Hike Length:</span> ${obj.trails[i].length} Miles </div>
     <div class="hikeDetails">
-    Rating: ${obj.trails[i].stars} (${obj.trails[i].starVotes}) &nbsp;&nbsp;&nbsp;
-    Difficulty: ${obj.trails[i].difficulty} &nbsp;&nbsp;&nbsp;
-    Elevation: ${obj.trails[i].ascent} ft
-    <br>Details: ${obj.trails[i].summary}
-    <br>Conditions: ${obj.trails[i].conditionDetails}
+    <span class="cardTitles">Rating: </span>${obj.trails[i].stars} (${obj.trails[i].starVotes}) &nbsp;&nbsp;&nbsp;
+    <span class="cardTitles">Difficulty:</span> ${obj.trails[i].difficulty} &nbsp;&nbsp;&nbsp;
+    <span class="cardTitles">Elevation:</span> ${obj.trails[i].ascent} ft
+    <br><span class="cardTitles">Details:</span> ${obj.trails[i].summary}
+    <br><span class="cardTitles">Conditions:</span> ${obj.trails[i].conditionDetails}
     </div>
   </div>`);
   $("#resultsArea").append(card);
+
 }
 
 function createFilteredCard(i){
