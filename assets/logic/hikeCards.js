@@ -84,7 +84,6 @@ var obj = {
 ]}
 
 function createCard(i){
-    var rating = obj.trails[i].stars * 20;
     var card = $(`
     <div class="hikeCard">
     <div class="image">
