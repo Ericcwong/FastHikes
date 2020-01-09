@@ -36,7 +36,7 @@ var obj = {
     "name": "Boulder Skyline Traverse",
     "type": "Featured Hike",
     "summary": "The classic long mountain route in Boulder.",
-    "difficulty": "black",
+    "difficulty": "blue",
     "stars": 4.7,
     "starVotes": 74,
     "location": "Superior, Colorado",
@@ -101,6 +101,30 @@ function createCard(i){
   </div>`);
   $("#resultsArea").append(card);
 }
-function cardInfo(){
 
-}
+//filtering logic
+var difficulty = $("#difficultyFilter").val();
+var elevation = $("#elevationFilter").val();
+var rating = $("#ratingFilter").val();
+var length = $("#lengthFilter").val();
+var trails = [];
+
+$("#filterBtn").on("click", function(){
+    // console.log(difficulty);
+    // console.log(elevation);
+    // console.log(rating);
+    // console.log(length);
+    //Run function to repopulate cards with these parameters.
+    console.log("original obj:", obj);
+    if(difficulty === "Easy"){
+        for(var i = 0; i < obj.trails.length; i++){
+          if(obj.trails[i].difficulty === "blue"){
+            trails.push(obj.trails[i]);
+          }
+        }
+        console.log("filterIndex array:", trails);
+        obj = {trails};
+        console.log("New obj:", obj);
+    }
+
+})

@@ -26,39 +26,40 @@
         <div id="filterArea">
           <h3>Filters</h3>
           <ul>
-            <li>Filter 1</li>
-            <li>Filter 1</li>
-            <li>Filter 1</li>
+            <li>
+              Difficulty: 
+              <select id="difficultyFilter">
+                <option data-value="Easy">Easy</option>
+                <option data-value="Moderate">Moderate</option>
+                <option data-value="Difficult">Hard</option>
+              </select>
+            </li>
+            <li>Elevation: 
+              <select id="elevationFilter">
+                <option data-value="1000">&lt;1000ft</option>
+                <option data-value="2000">&lt;2000ft</option>
+                <option data-value="3000">&lt;3000ft</option>
+              </select></li>
+            <li>Rating: 
+              <select id="ratingFilter">
+                <option data-value="5">5+</option>
+                <option data-value="4">4+</option>
+                <option data-value="3">3+</option>
+                <option data-value="2">2+</option>
+                <option data-value="1">1+</option>
+              </select></li>
+            <li>Length: 
+              <select id="lengthFilter">
+                <option data-value="0">0-5 miles</option>
+                <option data-value="5">5-10 miles</option>
+                <option data-value="10">10+ miles</option>
+              </select></li>
           </ul>
+          <button type="submit" id="filterBtn">Filter</button>
         </div>
       </aside>
       <section>
-        <div id="resultsArea">
-          <!-- <div class="hikeCard">
-            <div class="image">
-              <img src="http://placehold.it/200x200" alt="Image" class="hikeImage" />
-            </div>
-            <div class="hikeTitle">Title</div>
-            <div class="hikeDuration">Duration</div>
-            <div class="hikeDetails">Details</div>
-          </div>
-          <div class="hikeCard">
-            <div class="image">
-                <img src="http://placehold.it/200x200" alt="Image" class="hikeImage" />
-              </div>
-              <div class="hikeTitle">Title</div>
-              <div class="hikeDuration">Duration</div>
-              <div class="hikeDetails">Details</div>
-            </div>
-            <div class="hikeCard">
-                <div class="image">
-                    <img src="http://placehold.it/200x200" alt="Image" class="hikeImage" />
-                  </div>
-                  <div class="hikeTitle">Title</div>
-                  <div class="hikeDuration">Duration</div>
-                  <div class="hikeDetails">Details</div>
-                </div> -->
-          </div>
+        <div id="resultsArea"></div>
       </section>
     </main>
     <!-- <footer class="footer">Copyright 2019</footer> -->
@@ -68,5 +69,6 @@
     <!-- Code to the JavaScript File -->
     <script src="./assets/logic/hikeCards.js"></script>
     <script src="./assets/logic/script.js"></script>
+    <!-- <script src="./assets/logic/filters.js"></script> -->
   </body>
 </html>
