@@ -18,58 +18,57 @@
     <link rel="stylesheet" href="./assets/styles/results.css" />
   </head>
   <body>
-    <header>
-      <h1>FastHikes.com</h1>
+    <header class="header">
+      <img src="assets/images/results images/logo.png" alt="Logo" id="logo">
     </header>
     <main>
       <aside>
         <div id="filterArea">
-          <h2>Filters</h2>
+          <h3>Filters</h3>
           <ul>
-            <li>Filter 1</li>
-            <li>Filter 1</li>
-            <li>Filter 1</li>
+            <li>
+              Difficulty: 
+              <select id="difficultyFilter">
+                <option data-value="Easy">Easy</option>
+                <option data-value="Moderate">Moderate</option>
+                <option data-value="Difficult">Difficult</option>
+              </select>
+            </li>
+            <li>Elevation: 
+              <select id="elevationFilter">
+                <option data-value="1000">&lt;1000ft</option>
+                <option data-value="2000">&lt;2000ft</option>
+                <option data-value="3000">&lt;3000ft</option>
+              </select></li>
+            <li>Rating: 
+              <select id="ratingFilter">
+                <option data-value="5">5+</option>
+                <option data-value="4">4+</option>
+                <option data-value="3">3+</option>
+                <option data-value="2">2+</option>
+                <option data-value="1">1+</option>
+              </select></li>
+            <li>Length: 
+              <select id="lengthFilter">
+                <option data-value="0">0-5 miles</option>
+                <option data-value="5">5-10 miles</option>
+                <option data-value="10">10+ miles</option>
+              </select></li>
           </ul>
+          <button type="submit" id="filterBtn">Filter</button>
         </div>
       </aside>
       <section>
-        <div id="resultsArea">
-          <div class="hikeCard">
-            <div class="image">
-              <img src="http://placehold.it/100x100" alt="Image" />
-            </div>
-            <div class="hikeTitle">Title</div>
-            <div class="hikeDuration">Duration</div>
-            <div class="hikeDetails">Details</div>
-          </div>
-          <div class="hikeCard">
-            <div class="image">
-                <img src="http://placehold.it/100x100" alt="Image" />
-              </div>
-              <div class="hikeTitle">Title</div>
-              <div class="hikeDuration">Duration</div>
-              <div class="hikeDetails">Details</div>
-            </div>
-            <div class="hikeCard">
-                <div class="image">
-                    <img src="http://placehold.it/100x100" alt="Image" />
-                  </div>
-                  <div class="hikeTitle">Title</div>
-                  <div class="hikeDuration">Duration</div>
-                  <div class="hikeDetails">Details</div>
-                </div>
-          </div>
-          
-          </div>
-        </div>
+        <div id="resultsArea"></div>
       </section>
     </main>
-    <footer>Copyright 2019</footer>
+    <footer class="footer">Copyright 2019</footer>
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCthz1Sls8twrMp6b6vZ4nk_M6J7cMz934&callback=initMap"
     async defer></script>
     <!-- Code to the JavaScript File -->
+    <script src="./assets/logic/hikeCards.js"></script>
     <script src="./assets/logic/script.js"></script>
   </body>
 </html>
