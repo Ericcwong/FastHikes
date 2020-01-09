@@ -5,8 +5,9 @@ $(document).ready(function() {
   userDuration = localStorage.getItem("duration");
   var trailStats = [];
   var travelTimes = [];
+  var travelDuration;
 
-  var travelHours = "";
+  var travelHours = 0;
 
   console.log(userlat, userlong, userDuration);
 
@@ -24,7 +25,7 @@ $(document).ready(function() {
       var object = {
         lat: results[i].latitude,
         long: results[i].longitude,
-        length: results[i].length
+        len: results[i].length
       };
       trailStats.push(object);
     }
@@ -57,24 +58,15 @@ $(document).ready(function() {
       );
 
       function callback(response, status) {
-        // See Parsing the Results for
-        // the basics of a callback function.
-        //console.log(response);
-        // console.log(status);
         travelDuration =
           response.rows["0"].elements["0"].duration_in_traffic.value;
-        //travelHours = travelDuration * 3600;
-        console.log(travelDuration);
+        //travelHours = (travelDuration / 3600).toPrecision(2);
+        //console.log(travelDuration);
+        travelTimes.push(travelDuration);
       }
-      console.log(travelDuration);
-      var trailTime = trailStats[i].length;
-      console.log(trailTime);
-      var totalTime = travelHours + trailTime;
-
-      travelTimes.push(totalTime);
-      console.log(totalTime);
     }
     console.log(travelTimes);
+    console.log((trailStats[0].len / 3) * 3600 + travelTimes[0]);
   });
 });
 
