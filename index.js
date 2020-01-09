@@ -39,5 +39,6 @@ $("#input-form").on("submit", function(event){
             var long = response.results[0].geometry.lng;
             localStorage.setItem("lat", lat);
             localStorage.setItem("long", long);
+            window.location.href = "/results.html";
         });
 });
