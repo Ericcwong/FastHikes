@@ -11,7 +11,7 @@ $(document).ready(function() {
   var mainData = [];
 
   console.log(userlat, userlong, userDuration);
-
+  //test comment
   //Call Alltrails API via lat and long
   $.ajax({
     url: queryURL,
