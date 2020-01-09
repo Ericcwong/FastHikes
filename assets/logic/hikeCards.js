@@ -36,7 +36,7 @@ var obj = {
     "name": "Boulder Skyline Traverse",
     "type": "Featured Hike",
     "summary": "The classic long mountain route in Boulder.",
-    "difficulty": "blue",
+    "difficulty": "green",
     "stars": 4.7,
     "starVotes": 74,
     "location": "Superior, Colorado",
@@ -61,7 +61,7 @@ var obj = {
     "name": "Sunshine Lion's Lair Loop",
     "type": "Featured Hike",
     "summary": "Great Mount Sanitas views are the reward for this gentler loop in Sunshine Canyon.",
-    "difficulty": "blue",
+    "difficulty": "green",
     "stars": 4.5,
     "starVotes": 107,
     "location": "Boulder, Colorado",
@@ -118,13 +118,15 @@ $("#filterBtn").on("click", function(){
     console.log("original obj:", obj);
     if(difficulty === "Easy"){
         for(var i = 0; i < obj.trails.length; i++){
-          if(obj.trails[i].difficulty === "blue"){
+          console.log("Difficulty:", obj.trails[i].difficulty)
+          if(obj.trails[i].difficulty === "green" || obj.trails[i].difficulty === "greenBlue"){
             trails.push(obj.trails[i]);
           }
         }
         console.log("filterIndex array:", trails);
         obj = {trails};
         console.log("New obj:", obj);
+        trails = [];
     }
 
 })
