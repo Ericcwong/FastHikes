@@ -11,7 +11,7 @@ $(document).ready(function() {
   var mainData = [];
 
   console.log(userlat, userlong, userDuration);
-
+  //test comment
   //Call Alltrails API via lat and long
   $.ajax({
     url: queryURL,
@@ -20,7 +20,7 @@ $(document).ready(function() {
 
   //loop through the returned hike object and and get lat, long, and length of each hike
   function dataLoop(x) {
-    mainData = x.trails;
+    mainData = x;
     y = x.trails;
     console.log(y);
     for (var i = 0; i < y.length; i++) {
@@ -73,7 +73,7 @@ $(document).ready(function() {
           userDurationSeconds = userDuration * 3600;
           console.log(userDurationSeconds);
           if (totalTime[i] > userDurationSeconds) {
-            mainData.splice([i], 1);
+            mainData.trails.splice([i], 1);
           }
         }
       }
