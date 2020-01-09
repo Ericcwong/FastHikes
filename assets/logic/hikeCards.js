@@ -236,7 +236,7 @@ var obj = {
   "name": "Sugarloaf Mountain",
   "type": "Featured Hike",
   "summary": "The best bang-for-your-buck view trail in Boulder County.",
-  "difficulty": "greenBlue",
+  "difficulty": "blue",
   "stars": 4.4,
   "starVotes": 19,
   "location": "Boulder, Colorado",
@@ -314,8 +314,6 @@ var length = $("#lengthFilter").val();
     // console.log(rating);
     // console.log(length);
     //Run function to repopulate cards with these parameters.
-    console.log("original obj:", obj);
-    console.log("tempObj:", tempobj);
     if(difficulty === "Easy"){
         for(var i = 0; i < tempobj.trails.length; i++){
           if(tempobj.trails[i].difficulty === "green" || tempobj.trails[i].difficulty === "greenBlue"){
@@ -323,9 +321,11 @@ var length = $("#lengthFilter").val();
           }
         }
         tempobj = {trails};
-        console.log("New tempobj:", tempobj);
         for (var i=0; i<tempobj.trails.length; i++){   
           createFilteredCard(i);
+        }
+        if(trails.length === 0 ){
+          $("#resultsArea").text("No matches found");
         }
         trails = [];
         tempobj = obj;
@@ -337,9 +337,11 @@ var length = $("#lengthFilter").val();
         }
       }
       tempobj = {trails};
-      console.log("New tempobj:", tempobj);
       for (var i=0; i<tempobj.trails.length; i++){   
         createFilteredCard(i);
+      }
+      if(trails.length === 0 ){
+        $("#resultsArea").text("No matches found");
       }
       trails = [];
       tempobj = obj;
@@ -350,14 +352,14 @@ var length = $("#lengthFilter").val();
           trails.push(tempobj.trails[i]);
         }
       }
+      if(trails.length === 0 ){
+        $("#resultsArea").text("No matches found");
+      }
       tempobj = {trails};
-      console.log("New tempobj:", tempobj);
       for (var i=0; i<tempobj.trails.length; i++){   
         createFilteredCard(i);
       }
       trails = [];
       tempobj = obj;
     }
-    console.log(tempobj);
-
 })
