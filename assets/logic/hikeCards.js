@@ -10,7 +10,6 @@ $(document).ready(function(){
   var travelDuration = [];
   var totalTime = [];
   var mainData = [];
-  var obj;
 
   console.log(userlat, userlong, userDuration);
   //test comment
@@ -18,7 +17,8 @@ $(document).ready(function(){
   $.ajax({
     url: queryURL,
     method: "GET"
-  }).then(dataLoop);
+  }).then(dataLoop)
+  .then(init);
 
   //loop through the returned hike object and and get lat, long, and length of each hike
   function dataLoop(x) {
@@ -59,7 +59,6 @@ $(document).ready(function(){
         },
         callback
       );
-
     }
 
     function callback(response) {
@@ -80,12 +79,15 @@ $(document).ready(function(){
           }
         }
       }
-      obj = mainData;
-      setTimeout(init);
+      console.log(mainData);
+      mainObject = JSON.stringify(mainData);
+      localStorage.setItem("mainObject", mainObject);
     }
   }
+  var obj;
 
   function init(){
+    obj = JSON.parse(localStorage.getItem("mainObject"));
     for (var i=0; i<obj.trails.length; i++){   
         createCard(i);
     }
