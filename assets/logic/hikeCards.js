@@ -205,3 +205,5 @@ var length = $("#lengthFilter").val();
       tempobj = obj;
     }
 })
+
+$(".footer").text(moment().format("YYYY"));
