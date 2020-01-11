@@ -1,5 +1,4 @@
-$(document).ready(function(){
-
+$(document).ready(function() {
   //Get Lat, long, and duration from local memory
   userlat = localStorage.getItem("lat");
   userlong = localStorage.getItem("long");
@@ -22,9 +21,10 @@ $(document).ready(function(){
 
   //loop through the returned hike object and and get lat, long, and length of each hike
   function dataLoop(x) {
+    console.log(x);
     mainData = x;
+
     y = x.trails;
-    console.log("y:", y);
     for (var i = 0; i < y.length; i++) {
       var object = {
         lat: y[i].latitude,
@@ -60,45 +60,43 @@ $(document).ready(function(){
         callback
       );
     }
-
     function callback(response) {
       travelDuration =
         response.rows["0"].elements["0"].duration_in_traffic.value;
       travelTimes.push(travelDuration);
-      // console.log(travelTimes);
+      console.log(travelTimes);
       if (travelTimes.length == 10) {
-        for (var i = 0; i < travelTimes.length; i++) {
+        userDurationSeconds = userDuration * 3600;
+        console.log(userDurationSeconds);
+
+        for (i = 0; i < travelTimes.length; i++) {
           allTime = trailStats[i].len + travelTimes[i];
           totalTime.push(allTime);
-          // console.log(totalTime);
-          // console.log(mainData);
-          userDurationSeconds = userDuration * 3600;
-          // console.log(userDurationSeconds);
+        }
+        console.log(totalTime);
+        for (i = totalTime.length - 1; i >= 0; --i) {
           if (totalTime[i] > userDurationSeconds) {
-            mainData.trails.splice([i], 1);
+            mainData.trails.splice(i, 1);
           }
         }
+        console.log(mainData);
+        init(mainData);
       }
-      console.log("mainData", mainData);
-      mainObject = JSON.stringify(mainData);
-      // localStorage.setItem("mainObject", mainObject);
     }
-    setTimeout(function(){
-      init(mainData);
-    });
   }
+
   var obj;
 
-  function init(dataFromApi){
+  function init(dataFromApi) {
     obj = dataFromApi;
+    console.log(obj);
     tempobj = obj;
     // obj = JSON.parse(localStorage.getItem("mainObject"));
-    for (var i=0; i<obj.trails.length; i++){   
-        createCard(i);
+    for (var i = 0; i < obj.trails.length; i++) {
+      createCard(i);
     }
   }
-
-
+  
   function createCard(i){
         var image = obj.trails[i].imgMedium;
         var name = obj.trails[i].name;
@@ -158,71 +156,75 @@ function createFilteredCard(i){
   <br>Conditions: ${tempobj.trails[i].conditionDetails}
   </div>
 </div>`);
-$("#resultsArea").append(card);
-}
-
+    $("#resultsArea").append(card);
+  }
+});
 //filtering logic
 
 var trails = [];
 // var tempobj = obj;
 
-$("#filterBtn").on("click", function(){
-$("#resultsArea").empty();
-var difficulty = $("#difficultyFilter").val();
-var elevation = $("#elevationFilter").val();
-var rating = $("#ratingFilter").val();
-var length = $("#lengthFilter").val();
-    // console.log(difficulty);
-    // console.log(elevation);
-    // console.log(rating);
-    // console.log(length);
-    //Run function to repopulate cards with these parameters.
-    if(difficulty === "Easy"){
-        for(var i = 0; i < tempobj.length; i++){
-          if(tempobj.trails[i].difficulty === "green" || tempobj.trails[i].difficulty === "greenBlue"){
-            trails.push(tempobj.trails[i]);
-          }
-        }
-        tempobj = {trails};
-        for (var i=0; i<tempobj.length; i++){   
-          createFilteredCard(i);
-        }
-        if(trails.length === 0 ){
-          $("#resultsArea").text("No matches found");
-        }
-        trails = [];
-        tempobj = obj;
+$("#filterBtn").on("click", function() {
+  $("#resultsArea").empty();
+  var difficulty = $("#difficultyFilter").val();
+  var elevation = $("#elevationFilter").val();
+  var rating = $("#ratingFilter").val();
+  var length = $("#lengthFilter").val();
+  // console.log(difficulty);
+  // console.log(elevation);
+  // console.log(rating);
+  // console.log(length);
+  //Run function to repopulate cards with these parameters.
+  if (difficulty === "Easy") {
+    for (var i = 0; i < tempobj.length; i++) {
+      if (
+        tempobj.trails[i].difficulty === "green" ||
+        tempobj.trails[i].difficulty === "greenBlue"
+      ) {
+        trails.push(tempobj.trails[i]);
+      }
     }
-    else if(difficulty === "Moderate"){
-      for(var i = 0; i < tempobj.length; i++){
-        if(tempobj.trails[i].difficulty === "blue" || tempobj.trails[i].difficulty === "blueBlack"){
-          trails.push(tempobj.trails[i]);
-        }
-      }
-      tempobj = {trails};
-      for (var i=0; i<tempobj.length; i++){   
-        createFilteredCard(i);
-      }
-      if(trails.length === 0 ){
-        $("#resultsArea").text("No matches found");
-      }
-      trails = [];
-      tempobj = obj;
+    tempobj = { trails };
+    for (var i = 0; i < tempobj.length; i++) {
+      createFilteredCard(i);
     }
-    else if(difficulty === "Difficult"){
-      for(var i = 0; i < tempobj.length; i++){
-        if(tempobj.trails[i].difficulty === "black"){
-          trails.push(tempobj.trails[i]);
-        }
-      }
-      if(trails.length === 0 ){
-        $("#resultsArea").text("No matches found");
-      }
-      tempobj = {trails};
-      for (var i=0; i<tempobj.length; i++){   
-        createFilteredCard(i);
-      }
-      trails = [];
-      tempobj = obj;
+    if (trails.length === 0) {
+      $("#resultsArea").text("No matches found");
     }
-})
+    trails = [];
+    tempobj = obj;
+  } else if (difficulty === "Moderate") {
+    for (var i = 0; i < tempobj.length; i++) {
+      if (
+        tempobj.trails[i].difficulty === "blue" ||
+        tempobj.trails[i].difficulty === "blueBlack"
+      ) {
+        trails.push(tempobj.trails[i]);
+      }
+    }
+    tempobj = { trails };
+    for (var i = 0; i < tempobj.length; i++) {
+      createFilteredCard(i);
+    }
+    if (trails.length === 0) {
+      $("#resultsArea").text("No matches found");
+    }
+    trails = [];
+    tempobj = obj;
+  } else if (difficulty === "Difficult") {
+    for (var i = 0; i < tempobj.length; i++) {
+      if (tempobj.trails[i].difficulty === "black") {
+        trails.push(tempobj.trails[i]);
+      }
+    }
+    if (trails.length === 0) {
+      $("#resultsArea").text("No matches found");
+    }
+    tempobj = { trails };
+    for (var i = 0; i < tempobj.length; i++) {
+      createFilteredCard(i);
+    }
+    trails = [];
+    tempobj = obj;
+  }
+});
