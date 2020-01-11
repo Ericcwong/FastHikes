@@ -4,7 +4,7 @@
 }
 
 html { 
-    background: url(assets/hiking-backdrop.jpeg) no-repeat center center fixed; 
+    background-image: url("assets/images/index-images/hiking-backdrop.jpeg"); 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
