@@ -107,6 +107,8 @@ $(document).ready(function() {
     var ascent = obj.trails[i].ascent;
     var summary = obj.trails[i].summary;
     var condition = obj.trails[i].conditionDetails;
+    var location = obj.trails[i].location;
+    var url = obj.trails[i].url;
     var cardDataArray = [
       image,
       name,
@@ -116,7 +118,9 @@ $(document).ready(function() {
       difficulty,
       ascent,
       summary,
-      condition
+      condition,
+      location,
+      url
     ];
 
     function doesExist() {
@@ -139,9 +143,11 @@ $(document).ready(function() {
         <div class="hikeTitle"><span class="cardTitles">Title:</span> ${cardDataArray[1]}</div>
         <div class="hikeDuration"><span class="cardTitles">Hike Length:</span> ${cardDataArray[2]} Miles </div>
         <div class="hikeDetails">
+        <span class="cardTitles">Location:</span> ${cardDataArray[9]}<br>
         <span class="cardTitles">Rating: </span>${cardDataArray[3]}/5.0 (${cardDataArray[4]} votes) &nbsp;&nbsp;&nbsp;
         <span class="cardTitles">Difficulty:</span> ${cardDataArray[5]} &nbsp;&nbsp;&nbsp;
         <span class="cardTitles">Elevation:</span> ${cardDataArray[6]} ft
+        <br><span class="cardTitles">More info:</span> <a href="${cardDataArray[10]}">Click here</a>
         <br><span class="cardTitles">Details:</span> ${cardDataArray[7]}
         <br><span class="cardTitles">Conditions:</span> ${cardDataArray[8]}
         </div>
