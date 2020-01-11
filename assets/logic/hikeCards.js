@@ -96,25 +96,6 @@ $(document).ready(function() {
       createCard(i);
     }
   }
-
-  function createCard(i) {
-    var card = $(`
-      <div class="hikeCard">
-      <div class="image">
-      <img src="${obj.trails[i].imgMedium}" alt="Image" class="hikeImage" />
-      </div>
-      <div class="hikeTitle"><span class="cardTitles">Title:</span> ${obj.trails[i].name}</div>
-      <div class="hikeDuration"><span class="cardTitles">Hike Length:</span> ${obj.trails[i].length} Miles </div>
-      <div class="hikeDetails">
-      <span class="cardTitles">Rating: </span>${obj.trails[i].stars} (${obj.trails[i].starVotes}) &nbsp;&nbsp;&nbsp;
-      <span class="cardTitles">Difficulty:</span> ${obj.trails[i].difficulty} &nbsp;&nbsp;&nbsp;
-      <span class="cardTitles">Elevation:</span> ${obj.trails[i].ascent} ft
-      <br><span class="cardTitles">Details:</span> ${obj.trails[i].summary}
-      <br><span class="cardTitles">Conditions:</span> ${obj.trails[i].conditionDetails}
-      </div>
-    </div>`);
-    $("#resultsArea").append(card);
-  }
   
   function createCard(i){
         var image = obj.trails[i].imgMedium;
