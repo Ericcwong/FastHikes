@@ -24,7 +24,7 @@ $(document).ready(function(){
   function dataLoop(x) {
     mainData = x;
     y = x.trails;
-    console.log(y);
+    console.log("y:", y);
     for (var i = 0; i < y.length; i++) {
       var object = {
         lat: y[i].latitude,
@@ -79,7 +79,7 @@ $(document).ready(function(){
           }
         }
       }
-      console.log(mainData);
+      console.log("mainData", mainData);
       mainObject = JSON.stringify(mainData);
       // localStorage.setItem("mainObject", mainObject);
     }
@@ -108,7 +108,7 @@ $(document).ready(function(){
       <div class="hikeTitle"><span class="cardTitles">Title:</span> ${obj.trails[i].name}</div>
       <div class="hikeDuration"><span class="cardTitles">Hike Length:</span> ${obj.trails[i].length} Miles </div>
       <div class="hikeDetails">
-      <span class="cardTitles">Rating: </span>${obj.trails[i].stars} (${obj.trails[i].starVotes}) &nbsp;&nbsp;&nbsp;
+      <span class="cardTitles">Rating: </span>${obj.trails[i].stars}/5.0 (${obj.trails[i].starVotes} votes) &nbsp;&nbsp;&nbsp;
       <span class="cardTitles">Difficulty:</span> ${obj.trails[i].difficulty} &nbsp;&nbsp;&nbsp;
       <span class="cardTitles">Elevation:</span> ${obj.trails[i].ascent} ft
       <br><span class="cardTitles">Details:</span> ${obj.trails[i].summary}
