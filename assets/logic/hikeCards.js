@@ -113,6 +113,9 @@ $(document).ready(function(){
 
         function doesExist(){
           for( var i = 0; i < cardDataArray.length; i++){
+            if(cardDataArray[0] === ""){
+              cardDataArray[0] = "assets/images/NoImage.jpg";
+            }
             if(cardDataArray[i] === null || cardDataArray[i] === ""){
               cardDataArray[i] = "No data";
             }
