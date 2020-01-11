@@ -19,10 +19,12 @@ main {
   grid-area: filters;
 }
 #filterBtn{
-  margin-top: 20px;
-  padding: 5%;
-  padding-left: 10%;
-  padding-right: 10%;
+  color:white;
+  background-color: #77b55a;
+  border: 1px solid gray;
+  margin-top: 1%;
+  padding-left: 3%;
+  padding-right: 3%;
 }
 ul{
   margin: 0;
@@ -82,7 +84,7 @@ li{
   padding: 10px;
 }
 #logo{
-  padding-left: 3%;
+  /* padding-left: 3%; */
 }
 .header{
   background-image: url("../images/results\ images/headerBackground.jpg");
@@ -176,9 +178,31 @@ li{
 }
 /*Tablets*/
 @media (min-width: 641px) and (max-width: 1029px) {
-  header{
-    text-align: center;
+ 
+  #filterArea{
+    height: 400px;
   }
+  main {
+    display: inline;
+    grid-template-columns: 1% 99%;
+    grid-template-rows: 100vh;
+    grid-template-areas: "filters results";
+  }
+  .hikeCard {
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    grid-template-rows: 25% 75%;
+    grid-template-areas:
+      "Image Title Duration"
+      "Image Details Details";
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+  }
+}
+@media (min-width: 1030px){
+
   #filterArea{
     height: 400px;
   }

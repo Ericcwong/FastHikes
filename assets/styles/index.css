@@ -4,7 +4,8 @@
 }
 
 html { 
-    background-image: url("assets/images/index-images/hiking-backdrop.jpeg"); 
+    background-image: url("../images/index-images/hiking-backdrop.jpeg"); 
+    background-repeat: no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -19,8 +20,11 @@ html {
     padding: 20px;
     color: white;
     font-size: 2.5rem;
-    width: 476px;
+    max-width: 476px;
     text-shadow: 2px 2px 2px rgb(41, 41, 41);
+}
+#landing img{
+   vertical-align: middle;
 }
 .info-input {
     padding-top: 5px;
@@ -60,5 +64,19 @@ html {
 	position:relative;
 	top:1px;
 }
+#logo{
+    text-align: center;
+}
+/* Media Query */
 
-
+@media only screen and (min-device-width : 51px) and (max-device-width : 480px) {
+    #landing{
+        font-size: 2rem;
+        display: block;
+        background-position: center;
+        background-repeat: repeat-y;
+    }
+    html{
+        max-width: 100%
+    }
+  }

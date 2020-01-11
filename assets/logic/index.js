@@ -39,10 +39,6 @@ $("#input-form").on("submit", function(event){
             var long = response.results[0].geometry.lng;
             localStorage.setItem("lat", lat);
             localStorage.setItem("long", long);
-<<<<<<< HEAD:index.js
             window.location.href = "results.html";
-=======
-            window.location.href = "/FastHikes/results";
->>>>>>> 77c01461d1632aee0dc27249af0f45b6f00bbca4:assets/logic/index.js
         });
 });
