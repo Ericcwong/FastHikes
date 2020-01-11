@@ -24,7 +24,7 @@ $(document).ready(function(){
   function dataLoop(x) {
     mainData = x;
     y = x.trails;
-    console.log(y);
+    console.log("y:", y);
     for (var i = 0; i < y.length; i++) {
       var object = {
         lat: y[i].latitude,
@@ -79,7 +79,7 @@ $(document).ready(function(){
           }
         }
       }
-      console.log(mainData);
+      console.log("mainData", mainData);
       mainObject = JSON.stringify(mainData);
       // localStorage.setItem("mainObject", mainObject);
     }
@@ -100,25 +100,46 @@ $(document).ready(function(){
 
 
   function createCard(i){
-      var card = $(`
-      <div class="hikeCard">
-      <div class="image">
-      <img src="${obj.trails[i].imgMedium}" alt="Image" class="hikeImage" />
-      </div>
-      <div class="hikeTitle"><span class="cardTitles">Title:</span> ${obj.trails[i].name}</div>
-      <div class="hikeDuration"><span class="cardTitles">Hike Length:</span> ${obj.trails[i].length} Miles </div>
-      <div class="hikeDetails">
-      <span class="cardTitles">Rating: </span>${obj.trails[i].stars} (${obj.trails[i].starVotes}) &nbsp;&nbsp;&nbsp;
-      <span class="cardTitles">Difficulty:</span> ${obj.trails[i].difficulty} &nbsp;&nbsp;&nbsp;
-      <span class="cardTitles">Elevation:</span> ${obj.trails[i].ascent} ft
-      <br><span class="cardTitles">Details:</span> ${obj.trails[i].summary}
-      <br><span class="cardTitles">Conditions:</span> ${obj.trails[i].conditionDetails}
-      </div>
-    </div>`);
-    $("#resultsArea").append(card);
+        var image = obj.trails[i].imgMedium;
+        var name = obj.trails[i].name;
+        var length = obj.trails[i].length;
+        var stars = obj.trails[i].stars;
+        var votes = obj.trails[i].starVotes;
+        var difficulty = obj.trails[i].difficulty;
+        var ascent = obj.trails[i].ascent;
+        var summary = obj.trails[i].summary;
+        var condition = obj.trails[i].conditionDetails;
+        var cardDataArray = [image, name, length, stars, votes, difficulty, ascent, summary, condition];
 
-  }
-
+        function doesExist(){
+          for( var i = 0; i < cardDataArray.length; i++){
+            if(cardDataArray[0] === ""){
+              cardDataArray[0] = "assets/images/NoImage.jpg";
+            }
+            if(cardDataArray[i] === null || cardDataArray[i] === ""){
+              cardDataArray[i] = "No data";
+            }
+          }
+        }
+  
+        doesExist();
+        var card = $(`
+        <div class="hikeCard">
+        <div class="image">
+        <img src="${cardDataArray[0]}" alt="Image" class="hikeImage" />
+        </div>
+        <div class="hikeTitle"><span class="cardTitles">Title:</span> ${cardDataArray[1]}</div>
+        <div class="hikeDuration"><span class="cardTitles">Hike Length:</span> ${cardDataArray[2]} Miles </div>
+        <div class="hikeDetails">
+        <span class="cardTitles">Rating: </span>${cardDataArray[3]}/5.0 (${cardDataArray[4]} votes) &nbsp;&nbsp;&nbsp;
+        <span class="cardTitles">Difficulty:</span> ${cardDataArray[5]} &nbsp;&nbsp;&nbsp;
+        <span class="cardTitles">Elevation:</span> ${cardDataArray[6]} ft
+        <br><span class="cardTitles">Details:</span> ${cardDataArray[7]}
+        <br><span class="cardTitles">Conditions:</span> ${cardDataArray[8]}
+        </div>
+        </div>`);
+      $("#resultsArea").append(card);
+      }
 });
 
 function createFilteredCard(i){
