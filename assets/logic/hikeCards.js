@@ -96,32 +96,42 @@ $(document).ready(function() {
       createCard(i);
     }
   }
-  
-  function createCard(i){
-        var image = obj.trails[i].imgMedium;
-        var name = obj.trails[i].name;
-        var length = obj.trails[i].length;
-        var stars = obj.trails[i].stars;
-        var votes = obj.trails[i].starVotes;
-        var difficulty = obj.trails[i].difficulty;
-        var ascent = obj.trails[i].ascent;
-        var summary = obj.trails[i].summary;
-        var condition = obj.trails[i].conditionDetails;
-        var cardDataArray = [image, name, length, stars, votes, difficulty, ascent, summary, condition];
+ 
+  function createCard(i) {
+    var image = obj.trails[i].imgMedium;
+    var name = obj.trails[i].name;
+    var length = obj.trails[i].length;
+    var stars = obj.trails[i].stars;
+    var votes = obj.trails[i].starVotes;
+    var difficulty = obj.trails[i].difficulty;
+    var ascent = obj.trails[i].ascent;
+    var summary = obj.trails[i].summary;
+    var condition = obj.trails[i].conditionDetails;
+    var cardDataArray = [
+      image,
+      name,
+      length,
+      stars,
+      votes,
+      difficulty,
+      ascent,
+      summary,
+      condition
+    ];
 
-        function doesExist(){
-          for( var i = 0; i < cardDataArray.length; i++){
-            if(cardDataArray[0] === ""){
-              cardDataArray[0] = "assets/images/NoImage.jpg";
-            }
-            if(cardDataArray[i] === null || cardDataArray[i] === ""){
-              cardDataArray[i] = "No data";
-            }
-          }
+    function doesExist() {
+      for (var i = 0; i < cardDataArray.length; i++) {
+        if (cardDataArray[0] === "") {
+          cardDataArray[0] = "assets/images/NoImage.jpg";
         }
-  
-        doesExist();
-        var card = $(`
+        if (cardDataArray[i] === null || cardDataArray[i] === "") {
+          cardDataArray[i] = "No data";
+        }
+      }
+    }
+
+    doesExist();
+    var card = $(`
         <div class="hikeCard">
         <div class="image">
         <img src="${cardDataArray[0]}" alt="Image" class="hikeImage" />
@@ -136,12 +146,11 @@ $(document).ready(function() {
         <br><span class="cardTitles">Conditions:</span> ${cardDataArray[8]}
         </div>
         </div>`);
-      $("#resultsArea").append(card);
-      }
-});
+    $("#resultsArea").append(card);
+  }
 
-function createFilteredCard(i){
-  var card = $(`
+  function createFilteredCard(i) {
+    var card = $(`
   <div class="hikeCard">
   <div class="image">
   <img src="${tempobj.trails[i].imgMedium}" alt="Image" class="hikeImage" />
@@ -158,73 +167,74 @@ function createFilteredCard(i){
 </div>`);
     $("#resultsArea").append(card);
   }
-});
-//filtering logic
 
-var trails = [];
-// var tempobj = obj;
+  //filtering logic
 
-$("#filterBtn").on("click", function() {
-  $("#resultsArea").empty();
-  var difficulty = $("#difficultyFilter").val();
-  var elevation = $("#elevationFilter").val();
-  var rating = $("#ratingFilter").val();
-  var length = $("#lengthFilter").val();
-  // console.log(difficulty);
-  // console.log(elevation);
-  // console.log(rating);
-  // console.log(length);
-  //Run function to repopulate cards with these parameters.
-  if (difficulty === "Easy") {
-    for (var i = 0; i < tempobj.length; i++) {
-      if (
-        tempobj.trails[i].difficulty === "green" ||
-        tempobj.trails[i].difficulty === "greenBlue"
-      ) {
-        trails.push(tempobj.trails[i]);
+  var trails = [];
+  // var tempobj = obj;
+
+  $("#filterBtn").on("click", function() {
+    $("#resultsArea").empty();
+    var difficulty = $("#difficultyFilter").val();
+    var elevation = $("#elevationFilter").val();
+    var rating = $("#ratingFilter").val();
+    var length = $("#lengthFilter").val();
+    // console.log(difficulty);
+    // console.log(elevation);
+    // console.log(rating);
+    // console.log(length);
+    //Run function to repopulate cards with these parameters.
+    if (difficulty === "Easy") {
+      for (var i = 0; i < tempobj.length; i++) {
+        if (
+          tempobj.trails[i].difficulty === "green" ||
+          tempobj.trails[i].difficulty === "greenBlue"
+        ) {
+          trails.push(tempobj.trails[i]);
+        }
       }
-    }
-    tempobj = { trails };
-    for (var i = 0; i < tempobj.length; i++) {
-      createFilteredCard(i);
-    }
-    if (trails.length === 0) {
-      $("#resultsArea").text("No matches found");
-    }
-    trails = [];
-    tempobj = obj;
-  } else if (difficulty === "Moderate") {
-    for (var i = 0; i < tempobj.length; i++) {
-      if (
-        tempobj.trails[i].difficulty === "blue" ||
-        tempobj.trails[i].difficulty === "blueBlack"
-      ) {
-        trails.push(tempobj.trails[i]);
+      tempobj = { trails };
+      for (var i = 0; i < tempobj.length; i++) {
+        createFilteredCard(i);
       }
-    }
-    tempobj = { trails };
-    for (var i = 0; i < tempobj.length; i++) {
-      createFilteredCard(i);
-    }
-    if (trails.length === 0) {
-      $("#resultsArea").text("No matches found");
-    }
-    trails = [];
-    tempobj = obj;
-  } else if (difficulty === "Difficult") {
-    for (var i = 0; i < tempobj.length; i++) {
-      if (tempobj.trails[i].difficulty === "black") {
-        trails.push(tempobj.trails[i]);
+      if (trails.length === 0) {
+        $("#resultsArea").text("No matches found");
       }
+      trails = [];
+      tempobj = obj;
+    } else if (difficulty === "Moderate") {
+      for (var i = 0; i < tempobj.length; i++) {
+        if (
+          tempobj.trails[i].difficulty === "blue" ||
+          tempobj.trails[i].difficulty === "blueBlack"
+        ) {
+          trails.push(tempobj.trails[i]);
+        }
+      }
+      tempobj = { trails };
+      for (var i = 0; i < tempobj.length; i++) {
+        createFilteredCard(i);
+      }
+      if (trails.length === 0) {
+        $("#resultsArea").text("No matches found");
+      }
+      trails = [];
+      tempobj = obj;
+    } else if (difficulty === "Difficult") {
+      for (var i = 0; i < tempobj.length; i++) {
+        if (tempobj.trails[i].difficulty === "black") {
+          trails.push(tempobj.trails[i]);
+        }
+      }
+      if (trails.length === 0) {
+        $("#resultsArea").text("No matches found");
+      }
+      tempobj = { trails };
+      for (var i = 0; i < tempobj.length; i++) {
+        createFilteredCard(i);
+      }
+      trails = [];
+      tempobj = obj;
     }
-    if (trails.length === 0) {
-      $("#resultsArea").text("No matches found");
-    }
-    tempobj = { trails };
-    for (var i = 0; i < tempobj.length; i++) {
-      createFilteredCard(i);
-    }
-    trails = [];
-    tempobj = obj;
-  }
+  });
 });
