@@ -236,24 +236,5 @@ $(document).ready(function() {
       trails = [];
       tempobj = obj;
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-})
-
-$(".footer").text(moment().format("YYYY"));
-=======
-    if (trails.length === 0) {
-      $("#resultsArea").text("No matches found");
-    }
-    tempobj = { trails };
-    for (var i = 0; i < tempobj.length; i++) {
-      createFilteredCard(i);
-    }
-    trails = [];
-    tempobj = obj;
-  }
-=======
   });
->>>>>>> a29f96980ad4970ea9887d1b941b6c383f7920d9
 });
->>>>>>> c7875b3674be921b5033c29eed2aa8bc5bdba353
