@@ -228,7 +228,7 @@ $(document).ready(function() {
     // console.log(rating);
     // console.log(length);
     //Run function to repopulate cards with these parameters.
-    if (difficulty === "Easy") {
+    if (difficulty === "Green/GreenBlue") {
       for (var i = 0; i < tempobj.trails.length; i++) {
         if (
           tempobj.trails[i].difficulty === "green" ||
@@ -246,7 +246,7 @@ $(document).ready(function() {
       }
       trails = [];
       tempobj = obj;
-    } else if (difficulty === "Moderate") {
+    } else if (difficulty === "Blue/BlueBlack") {
       for (var i = 0; i < tempobj.trails.length; i++) {
         if (
           tempobj.trails[i].difficulty === "blue" ||
@@ -264,7 +264,7 @@ $(document).ready(function() {
       }
       trails = [];
       tempobj = obj;
-    } else if (difficulty === "Difficult") {
+    } else if (difficulty === "Black") {
       for (var i = 0; i < tempobj.trails.length; i++) {
         if (tempobj.trails[i].difficulty === "black") {
           trails.push(tempobj.trails[i]);
