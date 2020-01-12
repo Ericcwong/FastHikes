@@ -105,7 +105,7 @@ li{
     text-align: center;
   }
   #filterArea{
-    height: 250px;
+    height: 350px;
   }
   .hikeCard {
     display: inline;
@@ -194,13 +194,15 @@ li{
 @media (min-width: 771px) and (max-width: 1029px) {
  
   #filterArea{
-    height: 400px;
+    height: 250px;
   }
   main {
-    display: inline;
-    grid-template-columns: 1% 99%;
-    grid-template-rows: 100vh;
-    grid-template-areas: "filters results";
+    display: grid;
+    grid-template-columns: 25% 75%;
+    grid-template-rows: 20% 60% 20%;
+    grid-template-areas: 
+    "filters results"
+    "footer";
   }
   .hikeCard {
     display: grid;
@@ -218,13 +220,15 @@ li{
 @media (min-width: 1030px){
 
   #filterArea{
-    height: 400px;
+    height: 250px;
   }
   main {
-    display: inline;
-    grid-template-columns: 1% 99%;
-    grid-template-rows: 100vh;
-    grid-template-areas: "filters results";
+    display: grid;
+    grid-template-columns: 25% 75%;
+    grid-template-rows: 20% 60% 20%;
+    grid-template-areas: 
+    "filters results"
+    "footer";
   }
   .hikeCard {
     display: grid;
