@@ -1,3 +1,5 @@
+var tempobj;
+
 $(document).ready(function() {
   //Get Lat, long, and duration from local memory
   userlat = localStorage.getItem("lat");
@@ -9,7 +11,6 @@ $(document).ready(function() {
   var travelDuration = [];
   var totalTime = [];
   var mainData = [];
-  var tempobj;
 
   console.log(userlat, userlong, userDuration);
   //test comment
@@ -21,7 +22,7 @@ $(document).ready(function() {
 
   //loop through the returned hike object and and get lat, long, and length of each hike
   function dataLoop(x) {
-    console.log(x);
+    // console.log(x);
     mainData = x;
 
     y = x.trails;
@@ -64,22 +65,22 @@ $(document).ready(function() {
       travelDuration =
         response.rows["0"].elements["0"].duration_in_traffic.value;
       travelTimes.push(travelDuration);
-      console.log(travelTimes);
+      // console.log(travelTimes);
       if (travelTimes.length == 10) {
         userDurationSeconds = userDuration * 3600;
-        console.log(userDurationSeconds);
+        // console.log(userDurationSeconds);
 
         for (i = 0; i < travelTimes.length; i++) {
           allTime = trailStats[i].len + travelTimes[i];
           totalTime.push(allTime);
         }
-        console.log(totalTime);
+        // console.log(totalTime);
         for (i = totalTime.length - 1; i >= 0; --i) {
           if (totalTime[i] > userDurationSeconds) {
             mainData.trails.splice(i, 1);
           }
         }
-        console.log(mainData);
+        // console.log(mainData);
         init(mainData);
       }
     }
@@ -89,7 +90,7 @@ $(document).ready(function() {
 
   function init(dataFromApi) {
     obj = dataFromApi;
-    console.log(obj);
+    // console.log(obj);
     tempobj = obj;
     // obj = JSON.parse(localStorage.getItem("mainObject"));
     for (var i = 0; i < obj.trails.length; i++) {
@@ -107,6 +108,8 @@ $(document).ready(function() {
     var ascent = obj.trails[i].ascent;
     var summary = obj.trails[i].summary;
     var condition = obj.trails[i].conditionDetails;
+    var location = obj.trails[i].location;
+    var url = obj.trails[i].url;
     var cardDataArray = [
       image,
       name,
@@ -116,7 +119,9 @@ $(document).ready(function() {
       difficulty,
       ascent,
       summary,
-      condition
+      condition,
+      location,
+      url
     ];
 
     function doesExist() {
@@ -139,9 +144,11 @@ $(document).ready(function() {
         <div class="hikeTitle"><span class="cardTitles">Title:</span> ${cardDataArray[1]}</div>
         <div class="hikeDuration"><span class="cardTitles">Hike Length:</span> ${cardDataArray[2]} Miles </div>
         <div class="hikeDetails">
+        <span class="cardTitles">Location:</span> ${cardDataArray[9]}<br>
         <span class="cardTitles">Rating: </span>${cardDataArray[3]}/5.0 (${cardDataArray[4]} votes) &nbsp;&nbsp;&nbsp;
         <span class="cardTitles">Difficulty:</span> ${cardDataArray[5]} &nbsp;&nbsp;&nbsp;
         <span class="cardTitles">Elevation:</span> ${cardDataArray[6]} ft
+        <br><span class="cardTitles">More info:</span> <a href="${cardDataArray[10]}">Click here</a>
         <br><span class="cardTitles">Details:</span> ${cardDataArray[7]}
         <br><span class="cardTitles">Conditions:</span> ${cardDataArray[8]}
         </div>
@@ -150,25 +157,62 @@ $(document).ready(function() {
   }
 
   function createFilteredCard(i) {
+    var image = tempobj.trails[i].imgMedium;
+    var name = tempobj.trails[i].name;
+    var length = tempobj.trails[i].length;
+    var stars = tempobj.trails[i].stars;
+    var votes = tempobj.trails[i].starVotes;
+    var difficulty = tempobj.trails[i].difficulty;
+    var ascent = tempobj.trails[i].ascent;
+    var summary = tempobj.trails[i].summary;
+    var condition = tempobj.trails[i].conditionDetails;
+    var location = tempobj.trails[i].location;
+    var url = tempobj.trails[i].url;
+    var cardDataArray = [
+      image,
+      name,
+      length,
+      stars,
+      votes,
+      difficulty,
+      ascent,
+      summary,
+      condition,
+      location,
+      url
+    ];
+
+    function doesExist() {
+      for (var i = 0; i < cardDataArray.length; i++) {
+        if (cardDataArray[0] === "") {
+          cardDataArray[0] = "assets/images/NoImage.jpg";
+        }
+        if (cardDataArray[i] === null || cardDataArray[i] === "") {
+          cardDataArray[i] = "No data";
+        }
+      }
+    }
+
+    doesExist();
     var card = $(`
-  <div class="hikeCard">
-  <div class="image">
-  <img src="${tempobj.trails[i].imgMedium}" alt="Image" class="hikeImage" />
-  </div>
-  <div class="hikeTitle">Title: ${tempobj.trails[i].name}</div>
-  <div class="hikeDuration">Hike Length: ${tempobj.trails[i].length} Miles </div>
-  <div class="hikeDetails">
-  Rating: ${tempobj.trails[i].stars} (${tempobj.trails[i].starVotes}) &nbsp;&nbsp;&nbsp;
-  Difficulty: ${tempobj.trails[i].difficulty} &nbsp;&nbsp;&nbsp;
-  Elevation: ${tempobj.trails[i].ascent} ft
-  <br>Details: ${tempobj.trails[i].summary}
-  <br>Conditions: ${tempobj.trails[i].conditionDetails}
-  </div>
-</div>`);
+        <div class="hikeCard">
+        <div class="image">
+        <img src="${cardDataArray[0]}" alt="Image" class="hikeImage" />
+        </div>
+        <div class="hikeTitle"><span class="cardTitles">Title:</span> ${cardDataArray[1]}</div>
+        <div class="hikeDuration"><span class="cardTitles">Hike Length:</span> ${cardDataArray[2]} Miles </div>
+        <div class="hikeDetails">
+        <span class="cardTitles">Location:</span> ${cardDataArray[9]}<br>
+        <span class="cardTitles">Rating: </span>${cardDataArray[3]}/5.0 (${cardDataArray[4]} votes) &nbsp;&nbsp;&nbsp;
+        <span class="cardTitles">Difficulty:</span> ${cardDataArray[5]} &nbsp;&nbsp;&nbsp;
+        <span class="cardTitles">Elevation:</span> ${cardDataArray[6]} ft
+        <br><span class="cardTitles">More info:</span> <a href="${cardDataArray[10]}">Click here</a>
+        <br><span class="cardTitles">Details:</span> ${cardDataArray[7]}
+        <br><span class="cardTitles">Conditions:</span> ${cardDataArray[8]}
+        </div>
+        </div>`);
     $("#resultsArea").append(card);
   }
-
-  //filtering logic
 
   var trails = [];
   // var tempobj = obj;
@@ -184,8 +228,8 @@ $(document).ready(function() {
     // console.log(rating);
     // console.log(length);
     //Run function to repopulate cards with these parameters.
-    if (difficulty === "Easy") {
-      for (var i = 0; i < tempobj.length; i++) {
+    if (difficulty === "Green/GreenBlue") {
+      for (var i = 0; i < tempobj.trails.length; i++) {
         if (
           tempobj.trails[i].difficulty === "green" ||
           tempobj.trails[i].difficulty === "greenBlue"
@@ -194,7 +238,7 @@ $(document).ready(function() {
         }
       }
       tempobj = { trails };
-      for (var i = 0; i < tempobj.length; i++) {
+      for (var i = 0; i < tempobj.trails.length; i++) {
         createFilteredCard(i);
       }
       if (trails.length === 0) {
@@ -202,8 +246,8 @@ $(document).ready(function() {
       }
       trails = [];
       tempobj = obj;
-    } else if (difficulty === "Moderate") {
-      for (var i = 0; i < tempobj.length; i++) {
+    } else if (difficulty === "Blue/BlueBlack") {
+      for (var i = 0; i < tempobj.trails.length; i++) {
         if (
           tempobj.trails[i].difficulty === "blue" ||
           tempobj.trails[i].difficulty === "blueBlack"
@@ -212,7 +256,7 @@ $(document).ready(function() {
         }
       }
       tempobj = { trails };
-      for (var i = 0; i < tempobj.length; i++) {
+      for (var i = 0; i < tempobj.trails.length; i++) {
         createFilteredCard(i);
       }
       if (trails.length === 0) {
@@ -220,8 +264,8 @@ $(document).ready(function() {
       }
       trails = [];
       tempobj = obj;
-    } else if (difficulty === "Difficult") {
-      for (var i = 0; i < tempobj.length; i++) {
+    } else if (difficulty === "Black") {
+      for (var i = 0; i < tempobj.trails.length; i++) {
         if (tempobj.trails[i].difficulty === "black") {
           trails.push(tempobj.trails[i]);
         }
@@ -230,7 +274,7 @@ $(document).ready(function() {
         $("#resultsArea").text("No matches found");
       }
       tempobj = { trails };
-      for (var i = 0; i < tempobj.length; i++) {
+      for (var i = 0; i < tempobj.trails.length; i++) {
         createFilteredCard(i);
       }
       trails = [];
