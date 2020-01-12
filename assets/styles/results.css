@@ -105,7 +105,7 @@ li{
     text-align: center;
   }
   #filterArea{
-    height: 350px;
+    height: 200px;
   }
   .hikeCard {
     display: inline;
@@ -220,11 +220,11 @@ li{
 @media (min-width: 1030px){
 
   #filterArea{
-    height: 250px;
+    height: 200px;
   }
   main {
     display: grid;
-    grid-template-columns: 25% 75%;
+    grid-template-columns: 18% 82%;
     grid-template-rows: 20% 60% 20%;
     grid-template-areas: 
     "filters results"
