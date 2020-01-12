@@ -9,11 +9,13 @@ As an outdoor enthusiest, I need a way to see what hikes are around me that I ca
 ​
 ### Gallery
 ​
-Home page sketch:<br>
-<img src="assets/images/Webpage Sketching/homePageSketch.jpg" alt="home sketch" title="Home page sketch" width="300" height="300" /> <br>
+First draft website sketchup:<br>
+<img src="assets/images/Webpage Sketching/homePageSketch.jpg" alt="home sketch" title="Home page sketch" width="300" height="300"/>
+<img src="assets/images/Webpage Sketching/resultsPageSketch.jpg" alt="results sketch" title="Results page sketch" width="300" height="300"/>
+<br>
 ​
-Results page sketch:<br>
-<img src="assets/images/Webpage Sketching/resultsPageSketch.jpg" alt="results sketch" title="Results page sketch" width="300" height="300" />
+
+
 ​
 ### Problem
 ​
