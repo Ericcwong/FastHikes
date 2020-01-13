@@ -1,5 +1,4 @@
-# FastHikes.com
-​
+# [FastHikes.com](https://ericcwong.github.io/FastHikes/)
 ## Overview
 ​
 The purpose of this application is to provide a way for a user to quickly see what hikes are around them that they can get to, complete, and get back from in the time the specify.
@@ -10,11 +9,13 @@ As an outdoor enthusiest, I need a way to see what hikes are around me that I ca
 ​
 ### Gallery
 ​
-Home page sketch:<br>
-<img src="assets/images/Webpage Sketching/homePageSketch.jpg" alt="home sketch" title="Home page sketch" width="300" height="300" /> <br>
+First draft website sketchup:<br>
+<img src="assets/images/Webpage Sketching/homePageSketch.jpg" alt="home sketch" title="Home page sketch" width="300" height="300"/>
+<img src="assets/images/Webpage Sketching/resultsPageSketch.jpg" alt="results sketch" title="Results page sketch" width="300" height="300"/>
+<br>
 ​
-Results page sketch:<br>
-<img src="assets/images/Webpage Sketching/resultsPageSketch.jpg" alt="results sketch" title="Results page sketch" width="300" height="300" />
+
+
 ​
 ### Problem
 ​
