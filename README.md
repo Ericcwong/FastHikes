@@ -13,6 +13,9 @@ First draft website sketchup:<br>
 <img src="assets/images/Webpage Sketching/homePageSketch.jpg" alt="home sketch" title="Home page sketch" width="300" height="300"/>
 <img src="assets/images/Webpage Sketching/resultsPageSketch.jpg" alt="results sketch" title="Results page sketch" width="300" height="300"/>
 <br>
+Final Draft: <br>
+<img src="assets/images/Webpage Sketching/finishedIndex.PNG" alt="home sketch" title="Home page sketch" width="500" height="300"/>
+<img src="assets/images/Webpage Sketching/finishedResults.PNG" alt="home sketch" title="Home page sketch" width="500" height="300"/>
 ​
 
 
